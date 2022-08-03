@@ -2,7 +2,7 @@ import java.util.*;
 
 public class closestPrimeNumber{
 	public static void main(String[] args){
-	int num = 10;
+	int num = 31;
 	System.out.println(closestPrime(num));
 }
 	public static boolean isPrime(int n){
@@ -46,7 +46,9 @@ public class closestPrimeNumber{
 		}
 		smalln--;
 }
-}	
+	if(ans.size()>=1)
+		return ans;
+}
 	return ans;
 }
 }
