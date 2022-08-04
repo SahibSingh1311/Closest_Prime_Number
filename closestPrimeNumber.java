@@ -2,17 +2,13 @@ import java.util.*;
 
 public class closestPrimeNumber{
 	public static void main(String[] args){
-	int num = 31;
+	int num = 0;
 	System.out.println(closestPrime(num));
 }
 	public static boolean isPrime(int n){
-	if(n==0)
-		return false;
-	if(n==1)
-		return false;
 	if(n==2)
 		return true;
-	if(n%2==0)
+	if(n==0||n==1||n%2==0)
 		return false;
 	for(int i=3;i<n/2;i+=2){
 		if(n%i==0)
@@ -22,8 +18,6 @@ public class closestPrimeNumber{
 }
 	public static ArrayList<Integer> closestPrime(int num){
 	
-	boolean small = true;
-	boolean big = true;
 	int smalln=num;
 	int bign=num;
 	ArrayList<Integer> ans=new ArrayList();
@@ -31,23 +25,20 @@ public class closestPrimeNumber{
 	if(isPrime(num))
 		ans.add(num);	
 
-	while(big || small){
-	if(big){
+	while(ans.size()<1){
+	
 		if(isPrime(bign)){
-			big = false;
+			System.out.println(bign);
 			ans.add(bign);
 		}
-	bign++;
-}
-	if(small){
+		
+		if(smalln>1){
 		if(isPrime(smalln)){
-			small = false;
 			ans.add(smalln);
 		}
 		smalln--;
-}
-	if(ans.size()>=1)
-		return ans;
+	}
+	bign++;	
 }
 	return ans;
 }
